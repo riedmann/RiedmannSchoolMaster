@@ -6,6 +6,7 @@ Zeige anhand einer Skizze das SCRUM Vorgehensmodell.
 
 ## B) Fragen zu SCRUM und Agile Manifesto
 
+
 Beantworte in kurzen Sätzen folgende Fragen:
 
 ### a. SCRUM Events (2P)

@@ -1,5 +1,10 @@
 const n = 10000;
 
+for (let i = 0; i < n; i++) {
+  // Some operation
+  const temp = i * 2;
+}
+
 // O(n^2) + O(n) example
 let result = Math.pow(n, 2) + n;
 console.log("n^2:", Math.pow(n, 2));

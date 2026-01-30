@@ -1,22 +1,28 @@
 // MyGame - Example implementation of Game interface
 import { Game, GameFramework } from "./GameFramework.js";
+import { Rectangle } from "./actors/Rectangle.js";
+import { Circle } from "./actors/Circle.js";
+// start using objects
 class MyGame extends Game {
     constructor() {
         super(...arguments);
-        this.x = 50;
-        this.y = 250;
+        this.rectangles = [];
+        this.circles = [];
     }
     init() {
-        console.log("Game started!");
+        const r1 = new Rectangle(20, 20, 60, 40);
+        const r2 = new Rectangle(100, 100, 20, 20);
+        const r3 = new Rectangle(200, 150, 100, 100);
+        this.circles.push(new Circle(300, 300, 50), new Circle(400, 100), new Circle(500, 200, 30));
+        this.rectangles.push(r1, r2, r3);
     }
     update(deltaTime) {
-        console.log("update:", deltaTime);
-        this.x += 200 * deltaTime;
+        this.rectangles.forEach((rect) => rect.update(deltaTime));
+        this.circles.forEach((circle) => circle.update(deltaTime));
     }
     render(ctx) {
-        // Draw rectangle
-        ctx.fillStyle = "#FF66aa";
-        ctx.fillRect(this.x, this.y, 60, 40);
+        this.rectangles.forEach((rect) => rect.render(ctx));
+        this.circles.forEach((circle) => circle.render(ctx));
     }
 }
 const game = new MyGame();
