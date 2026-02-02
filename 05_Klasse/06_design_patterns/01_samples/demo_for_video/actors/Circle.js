@@ -1,8 +1,7 @@
 export class Circle {
-    constructor(x, y, radius) {
-        this.radius = 40;
-        this.x = x;
-        this.y = y;
+    constructor(movement, radius) {
+        this.movement = movement;
+        this.radius = 1;
         if (radius !== undefined) {
             this.radius = radius;
         }
@@ -11,10 +10,10 @@ export class Circle {
         console.log("in circle");
         ctx.fillStyle = "#FF66aa";
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.arc(this.movement.getX(), this.movement.getY(), this.radius, 0, Math.PI * 2);
         ctx.fill();
     }
     update(deltaTime) {
-        this.y += 200 * deltaTime;
+        this.movement.update(deltaTime, 10);
     }
 }

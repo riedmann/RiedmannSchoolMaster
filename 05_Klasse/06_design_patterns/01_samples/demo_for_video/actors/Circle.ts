@@ -1,11 +1,13 @@
-export class Circle {
-  private x: number;
-  private y: number;
-  private radius: number = 40;
+import { Actor } from "./Actor.js";
+import { MoveStrategy } from "../movements/MoveStrategy.js";
 
-  constructor(x: number, y: number, radius?: number) {
-    this.x = x;
-    this.y = y;
+export class Circle implements Actor {
+  private radius: number = 1;
+
+  constructor(
+    private movement: MoveStrategy,
+    radius?: number,
+  ) {
     if (radius !== undefined) {
       this.radius = radius;
     }
@@ -16,11 +18,17 @@ export class Circle {
 
     ctx.fillStyle = "#FF66aa";
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.arc(
+      this.movement.getX(),
+      this.movement.getY(),
+      this.radius,
+      0,
+      Math.PI * 2,
+    );
     ctx.fill();
   }
 
   update(deltaTime: number): void {
-    this.y += 200 * deltaTime;
+    this.movement.update(deltaTime, 10);
   }
 }
