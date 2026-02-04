@@ -7,6 +7,9 @@ export class RightMovement implements MoveStrategy {
   ) {}
   update(deltaTime: number, x: number) {
     this.x += this.speed * deltaTime;
+    if (this.x > 800) {
+      this.x = 0;
+    }
   }
 
   getX(): number {

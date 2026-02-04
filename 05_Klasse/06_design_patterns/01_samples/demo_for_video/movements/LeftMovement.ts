@@ -7,6 +7,9 @@ export class LeftMovement implements MoveStrategy {
   ) {}
   update(deltaTime: number, x: number) {
     this.x -= this.speed * deltaTime;
+    if (this.x < 0) {
+      this.x = 800;
+    }
   }
 
   getX(): number {

@@ -5,6 +5,7 @@ import { Circle } from "./actors/Circle.js";
 import { Tree } from "./actors/Tree.js";
 import { RightMovement } from "./movements/RightMovement.js";
 import { LeftMovement } from "./movements/LeftMovement.js";
+import { Homer } from "./actors/Homer.js";
 // start using objects
 class MyGame extends Game {
     constructor() {
@@ -19,6 +20,7 @@ class MyGame extends Game {
         this.actors.push(r1, r2, r3);
         this.actors.push(new Tree(50, 250));
         this.actors.push(new Tree(100, 450));
+        this.actors.push(new Homer(new RightMovement(300, 300, 30)));
     }
     update(deltaTime) {
         this.actors.forEach((actor) => actor.update(deltaTime));

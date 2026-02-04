@@ -6,6 +6,9 @@ export class RightMovement {
     }
     update(deltaTime, x) {
         this.x += this.speed * deltaTime;
+        if (this.x > 800) {
+            this.x = 0;
+        }
     }
     getX() {
         return this.x;

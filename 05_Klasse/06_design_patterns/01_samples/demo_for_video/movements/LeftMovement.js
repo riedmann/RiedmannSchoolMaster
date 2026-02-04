@@ -6,6 +6,9 @@ export class LeftMovement {
     }
     update(deltaTime, x) {
         this.x -= this.speed * deltaTime;
+        if (this.x < 0) {
+            this.x = 800;
+        }
     }
     getX() {
         return this.x;
