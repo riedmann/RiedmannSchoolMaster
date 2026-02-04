@@ -1,30 +1,11 @@
 // MyGame - Example implementation of Game interface
 import { Game, GameFramework } from "./GameFramework.js";
 
-interface Rectangle {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  vx: number; // pixels per second
-}
-
 class MyGame extends Game {
-  private rect1: Rectangle = {
-    x: 50,
-    y: 250,
-    width: 60,
-    height: 40,
-    vx: 200, // pixels per second
-  };
-
-  private rectangle: Rectangle = {
-    x: 50,
-    y: 250,
-    width: 60,
-    height: 40,
-    vx: 200, // pixels per second
-  };
+  private x: number = 100;
+  private y: number = 200;
+  private width: number = 50;
+  private height: number = 50;
 
   init(): void {
     console.log("Game started!");
@@ -33,23 +14,19 @@ class MyGame extends Game {
   update(deltaTime: number): void {
     console.log("update:", deltaTime);
 
-    this.rectangle.x += this.rectangle.vx * deltaTime;
-    if (this.rectangle.x > 800) {
-      this.rectangle.x = -this.rectangle.width;
+    this.x += 200 * deltaTime;
+    if (this.x > 800) {
+      this.x = -this.width;
     }
-    this.rectangle.width++;
+
+    this.width++;
   }
 
   render(ctx: CanvasRenderingContext2D): void {
     // Draw rectangle
-    ctx.fillStyle = "#FF66aa";
+    ctx.fillStyle = "#aaaaaa";
 
-    ctx.fillRect(
-      this.rectangle.x,
-      this.rectangle.y,
-      this.rectangle.width,
-      this.rectangle.height
-    );
+    ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
 

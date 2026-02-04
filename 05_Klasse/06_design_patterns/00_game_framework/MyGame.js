@@ -3,36 +3,26 @@ import { Game, GameFramework } from "./GameFramework.js";
 class MyGame extends Game {
     constructor() {
         super(...arguments);
-        this.rect1 = {
-            x: 50,
-            y: 250,
-            width: 60,
-            height: 40,
-            vx: 200, // pixels per second
-        };
-        this.rectangle = {
-            x: 50,
-            y: 250,
-            width: 60,
-            height: 40,
-            vx: 200, // pixels per second
-        };
+        this.x = 100;
+        this.y = 200;
+        this.width = 50;
+        this.height = 50;
     }
     init() {
         console.log("Game started!");
     }
     update(deltaTime) {
         console.log("update:", deltaTime);
-        this.rectangle.x += this.rectangle.vx * deltaTime;
-        if (this.rectangle.x > 800) {
-            this.rectangle.x = -this.rectangle.width;
+        this.x += 200 * deltaTime;
+        if (this.x > 800) {
+            this.x = -this.width;
         }
-        this.rectangle.width++;
+        this.width++;
     }
     render(ctx) {
         // Draw rectangle
-        ctx.fillStyle = "#FF66aa";
-        ctx.fillRect(this.rectangle.x, this.rectangle.y, this.rectangle.width, this.rectangle.height);
+        ctx.fillStyle = "#aaaaaa";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
 const game = new MyGame();
