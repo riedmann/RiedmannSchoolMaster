@@ -1,0 +1,12 @@
+p {
+  background: linear-gradient(to right, red, green);
+}
+
+.heading {
+  color: white;
+  background-color: black;
+}
+
+.body {
+  background-color: gray;
+}
