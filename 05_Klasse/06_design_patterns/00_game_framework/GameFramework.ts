@@ -39,13 +39,6 @@ abstract class Game {
    * @param {CanvasRenderingContext2D} ctx - Canvas context
    */
   abstract render(ctx: CanvasRenderingContext2D): void;
-
-  /**
-   * Handle mouse click events
-   * @param {number} x - Mouse X coordinate
-   * @param {number} y - Mouse Y coordinate
-   */
-  onMouseClick?(x: number, y: number): void;
 }
 
 class GameFramework {
@@ -69,7 +62,7 @@ class GameFramework {
     game: Game,
     width: number = 800,
     height: number = 600,
-    canvasId: string = "gameCanvas",
+    canvasId: string = "gameCanvas"
   ) {
     if (!(game instanceof Game)) {
       throw new Error("Game must be an instance of Game class");
@@ -81,7 +74,7 @@ class GameFramework {
 
     // Setup canvas
     const existingCanvas = document.getElementById(
-      canvasId,
+      canvasId
     ) as HTMLCanvasElement | null;
     if (existingCanvas) {
       this.canvas = existingCanvas;
@@ -98,17 +91,6 @@ class GameFramework {
       throw new Error("Could not get 2D context from canvas");
     }
     this.ctx = context;
-
-    // Setup mouse click listener
-    this.canvas.addEventListener("click", (event) => {
-      const rect = this.canvas.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      if (this.game.onMouseClick) {
-        this.game.onMouseClick(x, y);
-      }
-    });
   }
 
   /**
@@ -211,7 +193,7 @@ class GameFramework {
     y: number,
     width: number,
     height: number,
-    color: string = "#000000",
+    color: string = "#000000"
   ): void {
     this.ctx.fillStyle = color;
     this.ctx.fillRect(x, y, width, height);
@@ -224,7 +206,7 @@ class GameFramework {
     x: number,
     y: number,
     radius: number,
-    color: string = "#000000",
+    color: string = "#000000"
   ): void {
     this.ctx.fillStyle = color;
     this.ctx.beginPath();
@@ -240,7 +222,7 @@ class GameFramework {
     x: number,
     y: number,
     color: string = "#000000",
-    fontSize: number = 16,
+    fontSize: number = 16
   ): void {
     this.ctx.fillStyle = color;
     this.ctx.font = `${fontSize}px Arial`;

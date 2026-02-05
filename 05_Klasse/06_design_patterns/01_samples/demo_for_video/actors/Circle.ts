@@ -1,6 +1,7 @@
 import { AbstractActor } from "./AbstractActor.js";
 import { MoveStrategy } from "../movements/MoveStrategy.js";
 import { Observer } from "../observer/Observer.js";
+import { GameStandings } from "./GameStandings.js";
 
 export class Circle extends AbstractActor implements Observer {
   private radius: number = 1;
@@ -9,6 +10,7 @@ export class Circle extends AbstractActor implements Observer {
   constructor(
     protected movement: MoveStrategy,
     radius?: number,
+    private standings?: GameStandings,
   ) {
     super(movement);
     if (radius !== undefined) {
@@ -27,6 +29,13 @@ export class Circle extends AbstractActor implements Observer {
       Math.PI * 2,
     );
     ctx.fill();
+  }
+
+  update(deltaTime: number): void {
+    super.update(deltaTime);
+    // if (this.movement.getX() > 400) {
+    //   this.standings?.increaseScore(1);
+    // }
   }
 
   inform(event: string, data?: any): void {

@@ -43,15 +43,6 @@ class GameFramework {
             throw new Error("Could not get 2D context from canvas");
         }
         this.ctx = context;
-        // Setup mouse click listener
-        this.canvas.addEventListener("click", (event) => {
-            const rect = this.canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            if (this.game.onMouseClick) {
-                this.game.onMouseClick(x, y);
-            }
-        });
     }
     /**
      * Add a game object to the scene

@@ -1,8 +1,9 @@
 import { AbstractActor } from "./AbstractActor.js";
 export class Circle extends AbstractActor {
-    constructor(movement, radius) {
+    constructor(movement, radius, standings) {
         super(movement);
         this.movement = movement;
+        this.standings = standings;
         this.radius = 1;
         this.color = "#FF66aa";
         if (radius !== undefined) {
@@ -14,6 +15,12 @@ export class Circle extends AbstractActor {
         ctx.beginPath();
         ctx.arc(this.movement.getX(), this.movement.getY(), this.radius, 0, Math.PI * 2);
         ctx.fill();
+    }
+    update(deltaTime) {
+        super.update(deltaTime);
+        // if (this.movement.getX() > 400) {
+        //   this.standings?.increaseScore(1);
+        // }
     }
     inform(event, data) {
         console.log("i am a cicle" + event + " data" + data);

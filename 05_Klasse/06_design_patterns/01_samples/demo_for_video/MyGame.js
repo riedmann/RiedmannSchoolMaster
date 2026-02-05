@@ -1,11 +1,9 @@
 // MyGame - Example implementation of Game interface
+import { ActorFactory } from "./ActorFactory.js";
 import { Game, GameFramework } from "./GameFramework.js";
-import { Rectangle } from "./actors/Rectangle.js";
+import { GameStandings } from "./actors/GameStandings.js";
 import { Circle } from "./actors/Circle.js";
-import { Tree } from "./actors/Tree.js";
-import { RightMovement } from "./movements/RightMovement.js";
-import { LeftMovement } from "./movements/LeftMovement.js";
-import { Homer } from "./actors/Homer.js";
+import { Rectangle } from "./actors/Rectangle.js";
 // start using objects
 class MyGame extends Game {
     constructor() {
@@ -14,21 +12,21 @@ class MyGame extends Game {
         this.observers = [];
     }
     init() {
-        const r1 = new Rectangle(new RightMovement(20, 20, 60), 40, 60);
-        const r2 = new Rectangle(new LeftMovement(100, 100, 20), 20, 20);
-        const r3 = new Rectangle(new RightMovement(200, 150, 100), 100, 100);
-        const c1 = new Circle(new LeftMovement(150, 300, 20), 20);
-        const c2 = new Circle(new RightMovement(400, 200, 30), 30);
-        this.actors.push(c1, c2);
-        this.actors.push(r1, r2, r3);
-        const t1 = new Tree(500, 500, 150);
-        this.actors.push(t1);
-        this.actors.push(new Tree(100, 450));
-        this.actors.push(new Homer(new RightMovement(300, 300, 30)));
+        const acts = [];
+        const factory = new ActorFactory(800, 600);
+        acts.push(...factory.createRandomActors(10));
+        this.actors.push(...acts);
+        const s1 = GameStandings.createInstance();
+        this.actors.push(s1);
+        const c1 = new Circle(factory["createRandomMovement"](), 20, s1);
+        const c2 = new Circle(factory["createRandomMovement"](), 30, s1);
+        this.actors.push(c1);
+        this.actors.push(c2);
+        const r1 = new Rectangle(factory["createRandomMovement"](), 40, 50);
+        this.actors.push(r1);
         this.addObserver(c1);
         this.addObserver(c2);
         this.addObserver(r1);
-        this.addObserver(t1);
     }
     update(deltaTime) {
         this.actors.forEach((actor) => actor.update(deltaTime));
