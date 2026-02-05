@@ -1,8 +1,10 @@
 import { AbstractActor } from "./AbstractActor.js";
 import { MoveStrategy } from "../movements/MoveStrategy.js";
+import { Observer } from "../observer/Observer.js";
 
-export class Circle extends AbstractActor {
+export class Circle extends AbstractActor implements Observer {
   private radius: number = 1;
+  private color: string = "#FF66aa";
 
   constructor(
     protected movement: MoveStrategy,
@@ -15,9 +17,7 @@ export class Circle extends AbstractActor {
   }
 
   render(ctx: CanvasRenderingContext2D): void {
-    console.log("in circle");
-
-    ctx.fillStyle = "#FF66aa";
+    ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(
       this.movement.getX(),
@@ -27,5 +27,13 @@ export class Circle extends AbstractActor {
       Math.PI * 2,
     );
     ctx.fill();
+  }
+
+  inform(event: string, data?: any): void {
+    console.log("i am a cicle" + event + " data" + data);
+    if (event === "click") {
+      // change color on click
+      this.color = this.color === "#FF66aa" ? "#66aaff" : "#FF66aa";
+    }
   }
 }

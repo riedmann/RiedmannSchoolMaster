@@ -7,6 +7,9 @@ export class Tree {
             this.size = size;
         }
     }
+    inform(event, data) {
+        this.size -= 10;
+    }
     render(ctx) {
         const trunkWidth = this.size * 0.2;
         const trunkHeight = this.size * 0.4;

@@ -7,10 +7,12 @@ import { Tree } from "./actors/Tree.js";
 import { RightMovement } from "./movements/RightMovement.js";
 import { LeftMovement } from "./movements/LeftMovement.js";
 import { Homer } from "./actors/Homer.js";
+import { Observer } from "./observer/Observer.js";
 
 // start using objects
 class MyGame extends Game {
   private actors: Actor[] = [];
+  private observers: Observer[] = [];
 
   init(): void {
     const r1: Rectangle = new Rectangle(new RightMovement(20, 20, 60), 40, 60);
@@ -20,14 +22,19 @@ class MyGame extends Game {
       100,
       100,
     );
-    this.actors.push(
-      new Circle(new RightMovement(100, 200, 50), 10),
-      new Circle(new LeftMovement(150, 300, 20), 20),
-    );
+    const c1: Circle = new Circle(new LeftMovement(150, 300, 20), 20);
+    const c2: Circle = new Circle(new RightMovement(400, 200, 30), 30);
+    this.actors.push(c1, c2);
     this.actors.push(r1, r2, r3);
-    this.actors.push(new Tree(50, 250));
+    const t1: Tree = new Tree(500, 500, 150);
+    this.actors.push(t1);
     this.actors.push(new Tree(100, 450));
     this.actors.push(new Homer(new RightMovement(300, 300, 30)));
+
+    this.addObserver(c1);
+    this.addObserver(c2);
+    this.addObserver(r1);
+    this.addObserver(t1);
   }
 
   update(deltaTime: number): void {
@@ -36,6 +43,19 @@ class MyGame extends Game {
 
   render(ctx: CanvasRenderingContext2D): void {
     this.actors.forEach((actor) => actor.render(ctx));
+  }
+
+  addObserver(observer: Observer): void {
+    this.observers.push(observer);
+  }
+
+  notifyObservers(event: string, data?: any): void {
+    this.observers.forEach((observer) => observer.inform(event, data));
+  }
+
+  onMouseClick(x: number, y: number): void {
+    console.log(`Mouse clicked at (${x}, ${y})`);
+    this.notifyObservers("click", { x, y });
   }
 }
 

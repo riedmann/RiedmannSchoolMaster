@@ -1,5 +1,6 @@
+import { Observer } from "../observer/Observer.js";
 import { Actor } from "./Actor.js";
-export class Tree implements Actor {
+export class Tree implements Actor, Observer {
   private x: number;
   private y: number;
   private size: number = 100;
@@ -10,6 +11,9 @@ export class Tree implements Actor {
     if (size !== undefined) {
       this.size = size;
     }
+  }
+  inform(event: string, data?: any): void {
+    this.size -= 10;
   }
 
   render(ctx: CanvasRenderingContext2D): void {
