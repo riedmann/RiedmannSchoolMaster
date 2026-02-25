@@ -1,4 +1,5 @@
 import { CreditCardStrategy } from "./CreditCardStrategy";
+import { KlarnaStrategy } from "./KlarnaStrategy";
 import { PaymentContext } from "./PaymentContext";
 import { PaymentStrategy } from "./PaymentStrategy";
 import { PayPalStrategy } from "./PayPalStrategy";
@@ -13,6 +14,7 @@ const strategy2: PaymentStrategy = new CreditCardStrategy(
   "12/25",
   "123",
 );
+
 const context = new PaymentContext(strategy);
 
 context.pay(100); // Paying 100 using PayPal account
@@ -21,3 +23,6 @@ context.pay(200); // Paying 200 using Credit Card ending with 3456
 
 context.setStrategy(strategy);
 context.pay(50); // Paying 50 using PayPal account
+
+context.setStrategy(new KlarnaStrategy("example@example.com", "password123"));
+context.pay(75); // Paying 75 using Klarna account

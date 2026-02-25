@@ -1,0 +1,40 @@
+@startuml
+
+title Strategy Pattern - Payment Example
+
+interface PaymentStrategy {
+  + pay(amount: double): void
+}
+
+class PaymentContext {
+  - strategy: PaymentStrategy
+  + setStrategy(strategy: PaymentStrategy): void
+  + executePayment(amount: double): void
+}
+
+class CreditCardPayment {
+  - cardNumber: String
+  - cardHolder: String
+  - expiryDate: String
+  + pay(amount: double): void
+}
+
+class PayPalPayment {
+  - email: String
+  - password: String
+  + pay(amount: double): void
+}
+
+class BankTransferPayment {
+  - iban: String
+  - bic: String
+  + pay(amount: double): void
+}
+
+PaymentStrategy <|.. CreditCardPayment
+PaymentStrategy <|.. PayPalPayment
+PaymentStrategy <|.. BankTransferPayment
+
+PaymentContext o-- PaymentStrategy
+
+@enduml

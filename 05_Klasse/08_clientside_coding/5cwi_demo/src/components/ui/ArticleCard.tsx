@@ -19,7 +19,7 @@ export default function ArticleCard({
 
   const update = () => {
     setCounter(counter + 1);
-    let i = `https://picsum.photos/seed/${Math.random()}picsum/200/300`;
+    const i = `https://picsum.photos/seed/${Math.random()}picsum/200/300`;
     setImage(i);
   };
   return (
