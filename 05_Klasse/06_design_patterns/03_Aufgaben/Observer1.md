@@ -117,20 +117,6 @@ Each setter method must call `notify()`.
 
 ---
 
-## ⭐ Optional Advanced Task
-
-Extend the design so that:
-
-- Observers can subscribe only to specific events  
-  (e.g., only fuel changes or only altitude changes)
-
-Questions to consider:
-
-- Would you use Push or Pull model?
-- Would you introduce an Event class?
-- How would you model selective notifications in UML?
-
----
 
 ## 📝 Evaluation Criteria
 
