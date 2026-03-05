@@ -1,39 +1,40 @@
-@startuml
+@startuml PaymentStrategy
 
 title Strategy Pattern - Payment Example
 
 interface PaymentStrategy {
-  + pay(amount: double): void
+  + pay(amount: number): void
 }
 
 class PaymentContext {
   - strategy: PaymentStrategy
   + setStrategy(strategy: PaymentStrategy): void
-  + executePayment(amount: double): void
+  + pay(amount: number): void
 }
 
-class CreditCardPayment {
+class CreditCardStrategy {
   - cardNumber: String
-  - cardHolder: String
-  - expiryDate: String
-  + pay(amount: double): void
+  - cardHolderName: String
+  - expirationDate: String
+  - cvv: String
+  + pay(amount: number): void
 }
 
-class PayPalPayment {
+class PayPalStrategy {
   - email: String
   - password: String
-  + pay(amount: double): void
+  + pay(amount: number): void
 }
 
-class BankTransferPayment {
-  - iban: String
-  - bic: String
-  + pay(amount: double): void
+class KlarnaStrategy {
+  - email: String
+  - password: String
+  + pay(amount: number): void
 }
 
-PaymentStrategy <|.. CreditCardPayment
-PaymentStrategy <|.. PayPalPayment
-PaymentStrategy <|.. BankTransferPayment
+PaymentStrategy <|.. CreditCardStrategy
+PaymentStrategy <|.. PayPalStrategy
+PaymentStrategy <|.. KlarnaStrategy
 
 PaymentContext o-- PaymentStrategy
 

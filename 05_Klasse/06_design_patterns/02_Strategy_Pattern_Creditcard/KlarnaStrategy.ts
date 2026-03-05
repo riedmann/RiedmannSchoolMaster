@@ -1,8 +1,8 @@
 import { PaymentStrategy } from "./PaymentStrategy";
 
 export class KlarnaStrategy implements PaymentStrategy {
-  private email: string = "";
-  private password: string = "";
+  private readonly email: string;
+  private readonly password: string;
 
   constructor(email: string, password: string) {
     this.email = email;

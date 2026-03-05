@@ -1,10 +1,10 @@
 import { PaymentStrategy } from "./PaymentStrategy";
 
 export class CreditCardStrategy implements PaymentStrategy {
-  private cardNumber: string;
-  private cardHolderName: string;
-  private expirationDate: string;
-  private cvv: string;
+  private readonly cardNumber: string;
+  private readonly cardHolderName: string;
+  private readonly expirationDate: string;
+  private readonly cvv: string;
 
   constructor(
     cardNumber: string,
