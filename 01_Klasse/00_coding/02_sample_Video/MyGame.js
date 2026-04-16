@@ -9,7 +9,6 @@ class MyGame extends Game {
   }
 
   update(deltaTime) {
-    console.log("updarte" + deltaTime);
     this.x++;
     this.y++;
     this.width++;

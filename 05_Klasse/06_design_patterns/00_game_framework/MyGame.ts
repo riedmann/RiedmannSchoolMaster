@@ -12,8 +12,6 @@ class MyGame extends Game {
   }
 
   update(deltaTime: number): void {
-    console.log("update:", deltaTime);
-
     this.x += 200 * deltaTime;
     if (this.x > 800) {
       this.x = -this.width;

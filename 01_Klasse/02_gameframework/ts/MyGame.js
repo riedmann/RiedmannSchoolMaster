@@ -1,39 +1,33 @@
 // MyGame - Example implementation of Game interface
 import { Game, GameFramework } from "./GameFramework.js";
 class MyGame extends Game {
-    constructor() {
-        super(...arguments);
-        this.rect1 = {
-            x: 50,
-            y: 250,
-            width: 60,
-            height: 40,
-            vx: 200, // pixels per second
-        };
-        this.rectangle = {
-            x: 50,
-            y: 250,
-            width: 60,
-            height: 40,
-            vx: 200, // pixels per second
-        };
+  constructor() {
+    super(...arguments);
+    this.x = 0;
+    this.y = 0;
+    this.x1 = 0;
+    this.y1 = 50;
+  }
+  init() {
+    console.log("Game started!");
+  }
+  update(deltaTime) {
+    this.x += 300 * deltaTime; // Move 100 pixels per second
+    if (this.x > 800) {
+      this.x = -100; // Reset position when it goes off screen
     }
-    init() {
-        console.log("Game started!");
+    this.y1 += 200 * deltaTime; // Move 100 pixels per second
+    if (this.y1 > 600) {
+      this.y1 = -100; // Reset position when it goes off screen
     }
-    update(deltaTime) {
-        console.log("update:", deltaTime);
-        this.rectangle.x += this.rectangle.vx * deltaTime;
-        if (this.rectangle.x > 800) {
-            this.rectangle.x = -this.rectangle.width;
-        }
-        this.rectangle.width++;
-    }
-    render(ctx) {
-        // Draw rectangle
-        ctx.fillStyle = "#FF66aa";
-        ctx.fillRect(this.rectangle.x, this.rectangle.y, this.rectangle.width, this.rectangle.height);
-    }
+  }
+  render(ctx) {
+    // Draw rectangle
+    ctx.fillStyle = "#66aaff";
+    ctx.fillRect(this.x, this.y, 100, 100);
+    ctx.fillStyle = "#66aaff";
+    ctx.fillRect(this.x1, this.y1, 100, 100);
+  }
 }
 const game = new MyGame();
 const framework = new GameFramework(game, 800, 600);

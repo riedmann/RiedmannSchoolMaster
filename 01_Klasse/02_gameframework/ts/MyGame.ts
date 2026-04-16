@@ -1,55 +1,35 @@
 // MyGame - Example implementation of Game interface
 import { Game, GameFramework } from "./GameFramework.js";
 
-interface Rectangle {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  vx: number; // pixels per second
-}
-
 class MyGame extends Game {
-  private rect1: Rectangle = {
-    x: 50,
-    y: 250,
-    width: 60,
-    height: 40,
-    vx: 200, // pixels per second
-  };
-
-  private rectangle: Rectangle = {
-    x: 50,
-    y: 250,
-    width: 60,
-    height: 40,
-    vx: 200, // pixels per second
-  };
-
+  private x: number = 0;
+  private y: number = 0;
+  private x1: number = 0;
+  private y1: number = 50;
   init(): void {
     console.log("Game started!");
   }
 
   update(deltaTime: number): void {
-    console.log("update:", deltaTime);
-
-    this.rectangle.x += this.rectangle.vx * deltaTime;
-    if (this.rectangle.x > 800) {
-      this.rectangle.x = -this.rectangle.width;
+    this.x += 300 * deltaTime; // Move 100 pixels per second
+    if (this.x > 800) {
+      this.x = -100; // Reset position when it goes off screen
     }
-    this.rectangle.width++;
+
+    this.y1 += 200 * deltaTime; // Move 100 pixels per second
+    if (this.y1 > 600) {
+      this.y1 = -100; // Reset position when it goes off screen
+    }
   }
 
   render(ctx: CanvasRenderingContext2D): void {
     // Draw rectangle
-    ctx.fillStyle = "#FF66aa";
 
-    ctx.fillRect(
-      this.rectangle.x,
-      this.rectangle.y,
-      this.rectangle.width,
-      this.rectangle.height
-    );
+    ctx.fillStyle = "#66aaff";
+    ctx.fillRect(this.x, this.y, 100, 100);
+
+    ctx.fillStyle = "#66aaff";
+    ctx.fillRect(this.x1, this.y1, 100, 100);
   }
 }
 

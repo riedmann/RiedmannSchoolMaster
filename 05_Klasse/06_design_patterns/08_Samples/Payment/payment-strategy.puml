@@ -1,0 +1,53 @@
+@startuml Payment Strategy Pattern
+
+interface PaymentStrategy {
+  + pay(amount: number): void
+}
+
+class CreditCardPayment {
+  - cardNumber: string
+  - cardHolder: string
+  - cvv: string
+  - expiryDate: string
+  + constructor(cardNumber: string, cardHolder: string, cvv: string, expiryDate: string)
+  + pay(amount: number): void
+}
+
+class PayPalPayment {
+  - email: string
+  - password: string
+  + constructor(email: string, password: string)
+  + pay(amount: number): void
+}
+
+class BankTransferPayment {
+  - accountNumber: string
+  - bankCode: string
+  - accountHolder: string
+  + constructor(accountNumber: string, bankCode: string, accountHolder: string)
+  + pay(amount: number): void
+}
+
+class PaymentContext {
+  - strategy: PaymentStrategy
+  + constructor(strategy: PaymentStrategy)
+  + setStrategy(strategy: PaymentStrategy): void
+  + executePayment(amount: number): void
+}
+
+PaymentStrategy <|.. CreditCardPayment
+PaymentStrategy <|.. PayPalPayment
+PaymentStrategy <|.. BankTransferPayment
+PaymentContext o--> PaymentStrategy
+
+note right of PaymentContext
+  Der Kontext verwendet die Strategy
+  und kann diese zur Laufzeit wechseln
+end note
+
+note bottom of PaymentStrategy
+  Interface definiert die gemeinsame
+  Schnittstelle für alle Zahlungsarten
+end note
+
+@enduml
