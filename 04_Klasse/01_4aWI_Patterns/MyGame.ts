@@ -5,19 +5,19 @@ import { Circle } from "./actors/Circle.js";
 import { Actor } from "./actors/Actor.js";
 import { SuperCircle } from "./actors/SuperCircle.js";
 class MyGame extends Game {
-  private actors: Actor[] = [];
+  private x: number = 0;
 
-  init(): void {
-    this.actors.push(new SuperCircle(200, 200, 50));
-  }
+  init(): void {}
 
   update(deltaTime: number): void {
     // console.log("update:", deltaTime);
-    this.actors.forEach((actor) => actor.move(deltaTime));
+    this.x++;
   }
 
   render(ctx: CanvasRenderingContext2D): void {
-    this.actors.forEach((actor) => actor.render(ctx));
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.fillStyle = "blue";
+    ctx.fillRect(this.x, 50, 50, 50);
   }
 }
 

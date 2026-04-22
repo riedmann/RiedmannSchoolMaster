@@ -1,5 +1,5 @@
 import { MoveStrategy } from "../movements/MoveStrategy.js";
-import { Observer } from "../observers/Observer.js";
+import { Observer } from "../../observer/Observer.js";
 import { GEO } from "./GEO.js";
 export class Rect extends GEO implements Observer {
   constructor(

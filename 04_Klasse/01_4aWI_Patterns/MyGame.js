@@ -1,20 +1,19 @@
 // MyGame - Example implementation of Game interface
 import { Game, GameFramework } from "./GameFramework.js";
-import { SuperCircle } from "./actors/SuperCircle.js";
 class MyGame extends Game {
     constructor() {
         super(...arguments);
-        this.actors = [];
+        this.x = 0;
     }
-    init() {
-        this.actors.push(new SuperCircle(200, 200, 50));
-    }
+    init() { }
     update(deltaTime) {
         // console.log("update:", deltaTime);
-        this.actors.forEach((actor) => actor.move(deltaTime));
+        this.x++;
     }
     render(ctx) {
-        this.actors.forEach((actor) => actor.render(ctx));
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.fillStyle = "blue";
+        ctx.fillRect(this.x, 50, 50, 50);
     }
 }
 const game = new MyGame();

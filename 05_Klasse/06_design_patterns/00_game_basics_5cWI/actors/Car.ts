@@ -1,8 +1,7 @@
 import { MoveStrategy } from "../movements/MoveStrategy.js";
-import { Actor } from "./Actor.js";
-import { GEO } from "./GEO.js";
-import { Observer } from "../observers/Observer.js";
 import { Observable } from "../observers/Observable.js";
+import { Observer } from "../observers/Observer.js";
+import { GEO } from "./GEO.js";
 
 export class Car extends GEO implements Observable {
   private interested: Observer[] = [];

@@ -4,15 +4,19 @@ import { Car } from "./actors/Car.js";
 import { Circle } from "./actors/Circle.js";
 import { Game, GameFramework } from "./GameFramework.js";
 
+import { Rect } from "./actors/Rect.js";
+import { Star } from "./actors/Star.js";
 import { MoveDown } from "./movements/MoveDown.js";
 import { MoveRightStrategy } from "./movements/MoveRightStrategy.js";
 import { MoveSinusStrategy } from "./movements/MoveSinusStrategy.js";
 import { MoveStrategy } from "./movements/MoveStrategy.js";
-import { Rect } from "./actors/Rect.js";
-import { GEO } from "./actors/GEO.js";
+import { StarFactory } from "./factory/StarFactory.js";
+import { ActorFactory } from "./factory/ActorFactory.js";
+import { RectangleFactory } from "./factory/RectangleFactory.js";
 
 class MyGame extends Game {
   private actors: Actor[] = [];
+  private actualFactory: ActorFactory = new RectangleFactory();
 
   init(): void {
     console.log("Game started!");
@@ -23,7 +27,8 @@ class MyGame extends Game {
     const c1: Circle = new Circle("#00aa11", m1);
     const c2: Circle = new Circle("#aa00aa", m3);
     const r1: Rect = new Rect("#00aaaa", new MoveRightStrategy(0, 300, 100));
-    this.actors.push(c1, c2, car, r1);
+    const actors: Actor[] = this.actualFactory.createActors(50);
+    this.actors.push(c1, c2, car, r1, ...actors);
     car.addInterested(r1);
     car.addInterested(c2);
 
