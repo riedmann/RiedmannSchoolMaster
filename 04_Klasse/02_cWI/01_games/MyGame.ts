@@ -3,21 +3,29 @@ import { Game, GameFramework } from "./GameFramework.js";
 import { Rectangle } from "./actors/Rectangle.js";
 import { Circle } from "./actors/Circle.js";
 import { Actor } from "./actors/Actor.js";
-import { SuperCircle } from "./actors/SuperCircle.js";
-class MyGame extends Game {
-  private x: number = 0;
+import { Car } from "./actors/Car.js";
 
-  init(): void {}
+class MyGame extends Game {
+  private actors: Actor[] = [];
+
+  init(): void {
+    console.log("Game started!");
+    this.actors.push(new Rectangle(50, 50, 100, 100));
+    this.actors.push(new Rectangle(200, 150, 150, 150));
+
+    this.actors.push(new Circle(400, 300, 30));
+    this.actors.push(new Circle(600, 400, 50));
+    this.actors.push(new Circle(700, 400, 50));
+    this.actors.push(new Car(100, 500, 100, 50));
+  }
 
   update(deltaTime: number): void {
-    // console.log("update:", deltaTime);
-    this.x++;
+    this.actors.forEach((actor) => actor.update(deltaTime));
   }
 
   render(ctx: CanvasRenderingContext2D): void {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    ctx.fillStyle = "blue";
-    ctx.fillRect(this.x, 50, 50, 50);
+    this.actors.forEach((actor) => actor.render(ctx));
   }
 }
 
