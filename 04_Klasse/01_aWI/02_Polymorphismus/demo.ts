@@ -5,9 +5,12 @@ class A {
 }
 
 class B extends A {
+  // Override the sayHello method from class A
   sayHello() {
     console.log("Hello from B");
   }
+
+
 
   bark() {
     console.log("Woof!");

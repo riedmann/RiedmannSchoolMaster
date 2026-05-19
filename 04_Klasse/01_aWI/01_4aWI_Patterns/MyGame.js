@@ -1,6 +1,7 @@
-import { Circle } from "./Circle.js";
+// MyGame - Example implementation of Game interface
 import { Game, GameFramework } from "./GameFramework.js";
 import { Rectangle } from "./actors/Rectangle.js";
+import { Circle } from "./actors/Circle.js";
 class MyGame extends Game {
     constructor() {
         super(...arguments);

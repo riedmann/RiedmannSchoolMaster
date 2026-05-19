@@ -2,7 +2,8 @@
 import { Game, GameFramework } from "./GameFramework.js";
 import { Rectangle } from "./actors/Rectangle.js";
 import { Circle } from "./actors/Circle.js";
-import { Car } from "./actors/Car.js";
+import { SinusMovement } from "./movements/SinusMovement.js";
+import { DiagonalMovement } from "./movements/DiagonalMovement.js";
 class MyGame extends Game {
     constructor() {
         super(...arguments);
@@ -10,12 +11,12 @@ class MyGame extends Game {
     }
     init() {
         console.log("Game started!");
-        this.actors.push(new Rectangle(50, 50, 100, 100));
-        this.actors.push(new Rectangle(200, 150, 150, 150));
-        this.actors.push(new Circle(400, 300, 30));
-        this.actors.push(new Circle(600, 400, 50));
-        this.actors.push(new Circle(700, 400, 50));
-        this.actors.push(new Car(100, 500, 100, 50));
+        const m1 = new SinusMovement(100, 100, 50, 1); // Start at (100,100), amplitude 50, frequency 1
+        const m2 = new SinusMovement(200, 200, 30, 0.5); // Start at (200,200), amplitude 30, frequency 0.5
+        const m3 = new DiagonalMovement(300, 300, 40); // Start at (300,300), speed 40
+        this.actors.push(new Rectangle(m1, 50, 50));
+        this.actors.push(new Rectangle(m3, 200, 150));
+        this.actors.push(new Circle(m2, 25));
     }
     update(deltaTime) {
         this.actors.forEach((actor) => actor.update(deltaTime));

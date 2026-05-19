@@ -1,8 +1,9 @@
 // MyGame - Example implementation of Game interface
-import { Actor } from "./Actor.js";
-import { Circle } from "./Circle.js";
+
 import { Game, GameFramework } from "./GameFramework.js";
+import { Actor } from "./actors/Actor.js";
 import { Rectangle } from "./actors/Rectangle.js";
+import { Circle } from "./actors/Circle.js";
 
 class MyGame extends Game {
   private actors: Actor[] = [];
