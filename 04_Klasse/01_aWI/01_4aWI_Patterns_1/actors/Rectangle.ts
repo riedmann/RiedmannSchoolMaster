@@ -1,13 +1,16 @@
-export class Rectangle {
-    constructor(private width: number, private height: number, private x: number, private y: number) {   }  
+import { Actor } from "./Actor";
+import { LeftMovement } from "../movement/LeftMovement.js";
+import { MoveStrategy } from "../movement/MoveStrategy";
+export class Rectangle implements Actor {
+    constructor(private width: number, private height: number, private movement: MoveStrategy) { }
 
     update(deltaTime: number): void {
-        this.x += 100 * deltaTime;  // Move 100 pixels per second
-        this.y += 50 * deltaTime;  // Move 100 pixels per second
-    }   
+        this.movement.update(deltaTime);
+    }
 
     render(ctx: CanvasRenderingContext2D): void {
+        const position = this.movement.getPosition();
         ctx.fillStyle = "#66aaff";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-    }   
+        ctx.fillRect(position.x, position.y, this.width, this.height);
+    }
 }

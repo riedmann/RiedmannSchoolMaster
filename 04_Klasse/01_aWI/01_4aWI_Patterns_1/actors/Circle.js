@@ -1,23 +1,20 @@
 export class Circle {
-    constructor(radius, x, y) {
+    constructor(radius, movement) {
         this.radius = radius;
-        this.x = x;
-        this.y = y;
+        this.movement = movement;
     }
     setRadius(radius) {
         // if radius is valid
         this.radius = radius;
     }
     update(deltaTime) {
-        this.x += 100 * deltaTime; // Move 100 pixels per second
-        this.y += 100 * deltaTime; // Move 100 pixels per second
+        this.movement.update(deltaTime);
     }
     render(ctx) {
+        const position = this.movement.getPosition();
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.arc(position.x, position.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = "#ff6666";
         ctx.fill();
     }
 }
-const circle = new Circle(50, 100, 100);
-circle.setRadius(75);

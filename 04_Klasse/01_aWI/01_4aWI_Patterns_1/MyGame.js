@@ -2,6 +2,8 @@
 import { Game, GameFramework } from "./GameFramework.js";
 import { Circle } from "./actors/Circle.js";
 import { Rectangle } from "./actors/Rectangle.js";
+import { LeftMovement } from "./movement/LeftMovement.js";
+import { RightMovement } from "./movement/RightMovement.js";
 class MyGame extends Game {
     constructor() {
         super(...arguments);
@@ -9,11 +11,9 @@ class MyGame extends Game {
     }
     init() {
         console.log("Game started!");
-        this.actors.push(new Circle(50, 100, 100));
-        this.actors.push(new Circle(30, 200, 200));
-        this.actors.push(new Circle(20, 300, 300));
-        this.actors.push(new Rectangle(100, 50, 400, 100));
-        this.actors.push(new Rectangle(150, 75, 500, 200));
+        this.actors.push(new Circle(50, new LeftMovement(400, 300)));
+        this.actors.push(new Rectangle(100, 50, new RightMovement(400, 300)));
+        this.actors.push(new Rectangle(50, 50, new LeftMovement(200, 200)));
     }
     update(deltaTime) {
         this.actors.forEach(actor => actor.update(deltaTime));

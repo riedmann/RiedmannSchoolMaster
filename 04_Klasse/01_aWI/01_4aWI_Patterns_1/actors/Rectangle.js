@@ -1,16 +1,15 @@
 export class Rectangle {
-    constructor(width, height, x, y) {
+    constructor(width, height, movement) {
         this.width = width;
         this.height = height;
-        this.x = x;
-        this.y = y;
+        this.movement = movement;
     }
     update(deltaTime) {
-        this.x += 100 * deltaTime; // Move 100 pixels per second
-        this.y += 50 * deltaTime; // Move 100 pixels per second
+        this.movement.update(deltaTime);
     }
     render(ctx) {
+        const position = this.movement.getPosition();
         ctx.fillStyle = "#66aaff";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillRect(position.x, position.y, this.width, this.height);
     }
 }
