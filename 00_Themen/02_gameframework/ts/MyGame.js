@@ -1,33 +1,24 @@
 // MyGame - Example implementation of Game interface
 import { Game, GameFramework } from "./GameFramework.js";
+// start using objects
 class MyGame extends Game {
-  constructor() {
-    super(...arguments);
-    this.x = 0;
-    this.y = 0;
-    this.x1 = 0;
-    this.y1 = 50;
-  }
-  init() {
-    console.log("Game started!");
-  }
-  update(deltaTime) {
-    this.x += 300 * deltaTime; // Move 100 pixels per second
-    if (this.x > 800) {
-      this.x = -100; // Reset position when it goes off screen
+    constructor() {
+        super(...arguments);
+        this.x = 100;
+        this.y = 100;
     }
-    this.y1 += 200 * deltaTime; // Move 100 pixels per second
-    if (this.y1 > 600) {
-      this.y1 = -100; // Reset position when it goes off screen
+    init() { }
+    update(deltaTime) {
+        this.x += 50 * deltaTime; // Move right at 50 pixels per second
+        if (this.x > 800)
+            this.x = 0; // Wrap around the screen
     }
-  }
-  render(ctx) {
-    // Draw rectangle
-    ctx.fillStyle = "#66aaff";
-    ctx.fillRect(this.x, this.y, 100, 100);
-    ctx.fillStyle = "#66aaff";
-    ctx.fillRect(this.x1, this.y1, 100, 100);
-  }
+    render(ctx) {
+        ctx.clearRect(0, 0, 800, 600); // Clear the canvas
+        ctx.fillStyle = "blue";
+        ctx.fillRect(this.x, this.y, 50, 50); // Draw a blue square
+    }
+    onMouseClick(x, y) { }
 }
 const game = new MyGame();
 const framework = new GameFramework(game, 800, 600);
