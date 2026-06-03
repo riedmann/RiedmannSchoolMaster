@@ -1,0 +1,90 @@
+---
+
+---
+
+# 🏠 Design Patterns – Strategy Pattern
+## Assignment: Smart Home Heating System
+
+---
+
+## 🧩 Scenario
+
+You are designing a **Smart Home** system that can regulate heating.
+
+The home can operate in several modes:
+
+- **Eco Mode** → saves energy
+- **Comfort Mode** → keeps temperature ideal for comfort
+- **Away Mode** → minimal heating while nobody is home
+- **Schedule Mode** *(bonus)* → heats according to a preset schedule
+
+The system should allow changing the heating behavior **at runtime** without modifying the main controller.
+
+---
+
+## 📌 Requirements
+
+1. Define a `HeatingStrategy` interface with a method:
+   - `+regulateTemperature(currentTemp: double): void`
+2. Implement at least three concrete strategies: `EcoModeStrategy`, `ComfortModeStrategy`, `AwayModeStrategy` *(optional: `ScheduleBasedStrategy`)*
+3. Create a `SmartHomeController` class that holds a `HeatingStrategy`, delegates via `controlHeating(currentTemp)`, and supports `setStrategy()` at runtime.
+4. New strategies must be addable **without changing** the controller *(Open/Closed Principle)*.
+
+---
+
+## 📐 PlantUML Class Diagram
+
+```plantuml
+@startuml SmartHomeHeatingStrategy
+
+skinparam classAttributeIconSize 0
+skinparam style strictuml
+
+interface HeatingStrategy {
+  +regulateTemperature(currentTemp: double): void
+}
+
+class EcoModeStrategy {
+  +regulateTemperature(currentTemp: double): void
+}
+
+class ComfortModeStrategy {
+  +regulateTemperature(currentTemp: double): void
+}
+
+class AwayModeStrategy {
+  +regulateTemperature(currentTemp: double): void
+}
+
+class ScheduleBasedStrategy {
+  -schedule: Map<Time, Double>
+  +regulateTemperature(currentTemp: double): void
+}
+
+class SmartHomeController {
+  -strategy: HeatingStrategy
+  +setStrategy(strategy: HeatingStrategy): void
+  +controlHeating(currentTemp: double): void
+}
+
+HeatingStrategy <|.. EcoModeStrategy
+HeatingStrategy <|.. ComfortModeStrategy
+HeatingStrategy <|.. AwayModeStrategy
+HeatingStrategy <|.. ScheduleBasedStrategy
+
+SmartHomeController o--> HeatingStrategy : uses >
+
+note right of SmartHomeController
+  Delegates to strategy.
+  Strategy can be swapped
+  at runtime via setStrategy().
+end note
+
+note bottom of HeatingStrategy
+  Open/Closed Principle:
+  New strategies can be added
+  without changing the controller.
+end note
+
+@enduml
+```

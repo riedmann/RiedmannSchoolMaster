@@ -1,0 +1,18 @@
+@startuml
+
+actor Client
+
+Client -> Car : drive(speed)
+activate Car
+Car -> Engine : run(speed)
+activate Engine
+Engine -> Motorcontrol : setAmountOfFuel(speed * 0.1)
+activate Motorcontrol
+Motorcontrol --> Engine : amount
+deactivate Motorcontrol
+Engine --> Car
+deactivate Engine
+Car --> Client
+deactivate Car
+
+@enduml
