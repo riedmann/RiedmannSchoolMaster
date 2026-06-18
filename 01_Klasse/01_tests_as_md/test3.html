@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    <button id="submitBtn">Submit</button>
+    <p id="display"></p>
+
+    <script>
+      let button = document.getElementById("submitBtn");
+
+      button.addEventListener("change", function () {
+        let value = document.getElementById("nameInput").value;
+        let element = document.getElementById("display");
+        element.innerHTML = value;
+
+        // your code here: read the input value
+        // your code here: display it in the paragraph
+      });
+    </script>
+  </body>
+</html>
