@@ -1,0 +1,111 @@
+# Commit Review — 2026-06-22
+
+**Commits reviewed:** all (56)
+**Expected tasks:** html css flexbox media query grid js loops if conditions getelementbyid
+**Grade scale:** AT-1-5
+
+---
+
+## Philip
+
+**Pull result:** updated (11 files: CSS exercises Übung 4–8)
+**Branch:** main
+**Commits reviewed:** 56 (oldest → newest)
+
+### Commit Timeline
+
+| # | Hash | Message | Date | Files changed |
+|---|------|---------|------|---------------|
+| 1 | `602f49a` | Initial commit | — | — |
+| 2 | `5a565ae` | init | — | — |
+| 3 | `125ec40` | 10,20,30,40 Done | — | — |
+| 4 | `4a14884` | 40 Aufgabe 1 | — | — |
+| 5 | `dd9a2d1` | 41 Aufgabe 1 | — | — |
+| 6 | `57ebdc1` | 42 Aufgabe 1 | — | — |
+| 7 | `d955e67` | 40 Aufgabe 2 | — | — |
+| 8—12 | `75b9a5f`–`d62d93d` | move (×5) | — | — |
+| 13 | `981028c` | move | — | — |
+| 14 | `c81099a` | reorg | — | — |
+| 15 | `84cc770` | Deno erste aufgabe abu hamza | — | — |
+| 16 | `29b151b` | deleted | — | — |
+| 17 | `0937088` | 2deno | — | — |
+| 18 | `3b3a790` | Dritte Deno | — | — |
+| 19 | `17c5dbe` | 4deno | — | — |
+| 20 | `21e0a7e` | 5deno | — | — |
+| 21 | `4d9d551` | 6deno | — | — |
+| 22 | `41d2e83` | 50LogischeOperatoren | — | — |
+| 23 | `ffea782` | 50 Logische Operatoren (bin mir nicht so sicher) | — | — |
+| 24—27 | `cca18b4`–`c968953` | 52 Logische Operatoren 2–5 | — | — |
+| 28 | `63362b7` | 1 60_Loops | — | — |
+| 29—36 | `f876a83`–`a96f2e1` | 60_Loops 2–8 | — | — |
+| 37—39 | `faa5714`–`3607af2` | 11_Arrays 1–3 | — | — |
+| 40 | `cab9013` | NotenAufgabe | — | — |
+| 41 | `dfb9c2f` | REORG | — | — |
+| 42 | `2c4ee6a` | commit | — | — |
+| 43 | `3d9912b` | WEB_Page 1 | — | — |
+| 44—45 | `edbd0fd`–`3414530` | 1 video (×2) | — | — |
+| 46 | `5a738d1` | 1 | — | — |
+| 47 | `1b9f265` | heute | — | — |
+| 48 | `d3a4eaa` | mercedes neu und gut mit krassen profilbild | — | — |
+| 49 | `78c6a36` | merceedes website verbesserung | — | — |
+| 50 | `92afa45` | wieder jetzt mit krassem profilbild | — | — |
+| 51 | `8533613` | Übung_2 | — | — |
+| 52 | `9ec48a9` | Übung_3 | 2026-05-20 | — |
+| 53 | `357da9d` | Unabgegebene Übungen | 2026-06-18 | 11 |
+
+### Git Review
+
+| Commit | Message quality | Scope | Hygiene | Notes |
+|--------|----------------|-------|---------|-------|
+| `2c4ee6a` | ❌ "commit" | ⚠️ Unknown | ✅ | Meaningless |
+| `5a738d1` | ❌ "1" | ⚠️ Unknown | ✅ | Single digit |
+| `1b9f265` | ⚠️ "heute" | ⚠️ Unknown | ✅ | "today" — meaningless |
+| `84cc770` | ⚠️ "abu hamza" name in message | ⚠️ Odd | ✅ | Someone else's name? |
+| `d62d93d`–`75b9a5f` | ⚠️ "move" (×5+) | ❌ Excessive reorganisation | ✅ | Too many move/rename commits |
+| `edbd0fd`+`3414530` | ⚠️ Duplicate | ⚠️ Same video | ✅ | "1 video" twice |
+| `357da9d` | ⚠️ "Unabgegebene Übungen" | ❌ Batch-commit | ✅ | 11 files in one late commit |
+| Task commits | ✅ OK | ✅ Mostly atomic | ✅ Clean | |
+
+**Summary:** 56 commits is good volume, but message quality varies: several vague messages ("commit", "1", "heute"), 6+ "move" commits that fragment reorganisation, and a final mega-commit with 11 files. Commit small and often with meaningful messages.
+
+### Code Review
+
+**Commit `357da9d` — Unabgegebene Übungen (`01_Basics/10000000_Web/Übungen/`)**
+
+- **What was done:** CSS exercises Übung 4–8 — each in its own subfolder with `1.html` + `style.css`.
+- **Übung 4:** Box model, margins, padding ✅
+- **Übung 5–7:** Layout exercises with `display: flex` and various flex properties ✅
+- **Übung 8:** More complex layout with flexbox properties ✅
+- Code quality is clean and matches expected CSS exercise structure.
+- Note: All 5 exercises committed in ONE commit as "Unabgegebene Übungen" ("not yet submitted exercises") — these should have been committed individually as completed.
+
+**Mercedes project**
+
+- 3 commits on the Mercedes website show iterative improvement ✅
+- References a "krassen profilbild" (fancy profile pic) in commit messages — good sense of humor but keep messages professional.
+
+### Task Fulfillment
+
+| Expected item | Status | Notes |
+|---------------|--------|-------|
+| HTML | ✅ Done | Multiple HTML exercises, Mercedes |
+| CSS | ✅ Done | Selectors, box model, layout exercises |
+| Flexbox | ✅ Done | Übung 5–8 use flexbox |
+| Media Query | ❌ Missing | No `@media` rules found |
+| Grid | ❌ Missing | No CSS grid |
+| JS | ✅ Done | Variables, if-conditions, Deno, loops, arrays |
+| Loops | ✅ Done | 60_Loops 1–8 complete |
+| If conditions | ✅ Done | 40/41/42 tasks |
+| getElementById | ❌ Missing | No HTML/JS integration found (web videos only basic) |
+
+### Grade
+
+**Code Quality:** 65 | **Task Fulfillment:** 68 | **Git Discipline:** 55 | **Effort:** 72
+
+**Weighted Score:** 65×0.4 + 68×0.3 + 55×0.2 + 72×0.1 = 26.0 + 20.4 + 11.0 + 7.2 = **64.6**
+
+**Grade: 3 (Befriedigend)** — Philip completed the CSS exercises thoroughly and has good JS coverage. However, exercises were submitted in a single late commit, no media queries or grid, no `getElementById` web integration, and commit quality needs improvement.
+
+---
+
+*Report generated by GitHub Copilot on 2026-06-22*

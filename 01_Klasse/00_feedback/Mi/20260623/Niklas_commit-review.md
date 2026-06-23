@@ -1,0 +1,115 @@
+# Commit Review — 2026-06-22
+
+**Student:** Niklas  
+**Commits reviewed:** all (43 total)  
+**Expected tasks:** html, css, flexbox, media query, grid, js, loops, if conditions, getElementById  
+**Grade scale:** AT-1-5  
+
+---
+
+**Pull result:** no changes  
+**Branch:** main  
+**Commits reviewed:** 43 (oldest → newest)  
+**Active period:** 2025-10-15 → 2026-04-30 (~6.5 months)
+
+---
+
+### Commit Timeline (selected key commits)
+
+| # | Hash | Message | Date | Files changed |
+|---|------|---------|------|---------------|
+| 1 | `3c0cdd7` | Added first file | 2025-10-15 | — |
+| 2 | `f84e5c3` | Finished 10 JS Variablen & Operationen | 2025-10-xx | — |
+| 3 | `020d7fc` | 40_if-Bedingung_Basics Aufgabe 1 finished | 2025-11-xx | — |
+| 4 | `faec186` | Finished 41_if_Aufgaben_else Aufgabe1 | 2025-11-xx | — |
+| 5 | `733730b` | Aufgabe_1_Password | 2025-11-xx | — |
+| 6 | `e979715` | Aufgabe_6_Getränkeautomat | 2025-11-xx | — |
+| 7 | `80cd9f1` | 50_logische_Operatoren_&&_Aufgabe_1 | 2025-12-xx | — |
+| 8 | `9676df1` | 60_Loops\aufgabe1.js | 2025-12-xx | — |
+| 9 | `d6a1a19` | 60_Loops\aufgabe8.js | 2025-12-xx | — |
+| 10 | `724b1dc` | 70_Arrays\aufgabe1.js | 2026-01-xx | — |
+| 11 | `c0f444b` | 70_Arrays_Aufgabe4+5 | 2026-01-xx | — |
+| 12 | `c3863c3` | 80_Minigames | 2026-01-28 | — |
+| 13 | `bf1e054` | added Frameworks | 2026-03-xx | — |
+| 14 | `0fec7f2` | refctoring RAN | 2026-03-04 | — |
+| 15 | `cde68f1` | renaming folder | 2026-03-04 | — |
+| 16 | `26cb980` | Mercedes | 2026-04-29 | — |
+| 17 | `8f1673d` | Mercedes-advanced | 2026-04-30 | 2 (+33/-13) |
+
+---
+
+### Git Review
+
+| Commit | Message quality | Scope | Hygiene | Notes |
+|--------|----------------|-------|---------|-------|
+| Most commits | ✅ Good | ✅ Atomic | ✅ Clean | Clear, descriptive names |
+| `9676df1`–`d6a1a19` | ⚠️ Path-as-msg | ⚠️ Unusual | ✅ Clean | Messages use backslash paths like `60_Loops\aufgabe1.js` — file names not descriptions |
+| `bf1e054` | ⚠️ Vague | — | ✅ Clean | "added Frameworks" — which frameworks? |
+| `1641ed2` | ⚠️ Unclear | — | ✅ Clean | "Testcommit" |
+| `0fec7f2` | ⚠️ Typo | — | ✅ Clean | "refctoring" (typo) |
+
+**Observations:**
+- Clean, atomic commit history overall
+- Loop/array commits use file paths as messages (minor style issue)
+- Last commit April 2026 — no JS+HTML DOM work found
+- No binaries, no `node_modules`
+
+---
+
+### Code Review
+
+**`08_Responsivness` — Responsive Web (`02_Web/01_css/08_Responsivness/index.html`)**
+
+- What was done: CSS Grid with `grid-template-columns: 100%` for mobile and `33% 33% 33%` for `min-width: 600px` — correct responsive pattern ✅
+- Issues/Risks: Folder name typo "Responsivness" (should be "Responsiveness") — minor
+- The implementation is identical to the classroom example which is expected at this learning stage
+
+**`26cb980` + `8f1673d` — Mercedes (advanced)**
+
+- What was done: Full three-column header with `display: flex`, icon sprites from official Mercedes CDN URLs, `justify-content: space-evenly`, precise padding/sizing
+- Issues/Risks: Uses `background-color: aqua` and `background-color: red` debug colors on `.left` and `.middle` sections — these are clearly test/debug colors not intended for final design
+- Double semicolon on `.AGB { background-image: url(...);;` }` — minor CSS syntax issue
+- Indentation inconsistency: `.logo` is incorrectly indented under `.right` closing brace
+- Suggestions: Remove debug colors; fix indentation
+
+**Flexbox (`06_FlexBox/index.html`):**
+
+- What was done: `display: flex` container — correct but minimal (no `justify-content` or `align-items` in the version reviewed)
+- Suggestions: Add alignment properties to demonstrate full flexbox capabilities
+
+**No `getElementById` / DOM exercises found** — the repository has no JS+HTML integration.
+
+---
+
+### Task Fulfillment
+
+| Expected item | Status | Notes |
+|---------------|--------|-------|
+| HTML | ✅ Done | Well-structured HTML throughout |
+| CSS | ✅ Done | Multiple CSS files, good variety |
+| Flexbox | ⚠️ Partial | Present but minimal properties |
+| Media Query | ✅ Done | `@media (min-width: 600px)` in responsive exercise |
+| Grid | ✅ Done | Grid with `minmax`, responsive columns |
+| JS | ✅ Done | Full loops, if/else, Deno, arrays, minigames |
+| Loops | ✅ Done | All 8 loop exercises completed |
+| If Conditions | ✅ Done | All if/else exercises completed |
+| getElementById | ❌ Missing | No DOM interaction exercises found |
+
+---
+
+### Grade
+
+| Criterion | Score |
+|-----------|-------|
+| Code Quality (40%) | 72 |
+| Task Fulfillment (30%) | 78 |
+| Git Discipline (20%) | 72 |
+| Effort (10%) | 72 |
+
+**Weighted Score: 74**
+
+**Grade: 2** — Niklas covers most expected topics with good quality. Responsive web with media query and grid are well done. The Mercedes website shows advanced CSS understanding. Main gaps: no `getElementById`/DOM exercises and the flexbox exercise is minimal. Debug colors in the Mercedes CSS pull the code quality down slightly.
+
+---
+
+*Report generated by GitHub Copilot on 2026-06-22*

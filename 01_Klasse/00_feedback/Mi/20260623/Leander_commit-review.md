@@ -1,0 +1,108 @@
+# Commit Review — 2026-06-22
+
+**Student:** Leander  
+**Commits reviewed:** all (47 total)  
+**Expected tasks:** html, css, flexbox, media query, grid, js, loops, if conditions, getElementById  
+**Grade scale:** AT-1-5  
+
+---
+
+**Pull result:** no changes  
+**Branch:** main  
+**Commits reviewed:** 47 (oldest → newest)  
+**Active period:** 2025-10-15 → 2026-03-27 (~5.5 months)
+
+---
+
+### Commit Timeline (selected key commits)
+
+| # | Hash | Message | Date | Files changed |
+|---|------|---------|------|---------------|
+| 1 | `b4fd1ec` | leni.handle@icloud.com | 2025-10-15 | — |
+| 2 | `7c15c8c` | Task | 2025-10-xx | — |
+| 3 | `534a37f` | Ich habe alles nochmal neu gemacht... | 2025-10-xx | — |
+| 4 | `f2202b4` | aufgaben gemacht | 2025-11-xx | — |
+| 5 | `edc2e1d` | random quote mithilfe von einer api übung | 2025-11-xx | — |
+| 6 | `3dfccb8` | P5 Snake Done | 2025-12-xx | — |
+| 7 | `50c4fae` | Ratespiel Done | 2025-12-xx | — |
+| 8 | `fc0d3d7` | Ordnung gemacht | 2026-01-xx | — |
+| 9 | `c0bee4b` | simple block game for learning the frame work | 2026-01-xx | — |
+| 10 | `081a5ed` | clicker game | 2026-01-xx | — |
+| 11 | `8a6c702` | task complete | 2026-02-xx | — |
+| 12 | `e3ac05b` | calculator | 2026-02-18 | — |
+| 13 | `1915da5` | task 2 | 2026-03-04 | — |
+| 14 | `56ae118` | Mercedes website prototybe not done | 2026-03-27 | 9 (+233) |
+
+---
+
+### Git Review
+
+| Commit | Message quality | Scope | Hygiene | Notes |
+|--------|----------------|-------|---------|-------|
+| `b4fd1ec` | ❌ Poor | — | ✅ Clean | Email address as commit message |
+| `534a37f` | ⚠️ OK | — | ✅ Clean | Long message but explains context |
+| `edc2e1d` | ✅ Good | ✅ Atomic | ✅ Clean | Describes feature clearly |
+| Many "task complete" | ⚠️ Vague | ⚠️ Unclear | ✅ Clean | No indication of which task |
+| `56ae118` | ✅ Honest | ✅ Atomic | ⚠️ Binary | **Commits binary media files** (`backround.mp4` 36MB, `.avif`, `.webp`, `.png`) — should not be in Git |
+
+**Observations:**
+- Commits large binary files (35MB MP4 video in `Swp_Basics/03_Web/09_mercedes/images/backround.mp4`) — significant git hygiene issue
+- Many "task complete" messages without identifying the task
+- Email address committed as first message
+- Last commit March 2026 — no web JS exercises found
+
+---
+
+### Code Review
+
+**Calculator (`03_Web/04_calculator/index.js`)**
+
+- What was done: Full calculator using `getElementById` for every key, `addEventListener`, expression building with a string, `eval()` for computation, `try/catch` for invalid input
+- Issues/Risks: Using `eval()` is a security concern — for a local student project it's acceptable, but in production it's dangerous. Good error handling with `try/catch` ✅. Very repetitive code (80+ lines of near-identical event handlers, one per button).
+- Suggestions: Use a loop over buttons or `data-value` attributes to reduce repetition
+
+**Mercedes Website (`03_Web/09_mercedes/style.css`)**
+
+- What was done: Flexbox header with `display: flex`, `justify-content: space-between`, icons, left/right sections
+- Issues/Risks: Large binary files committed (MP4 video, images) — these should use a CDN or at minimum be in `.gitignore`. The `.css` file also contains encoding issues (non-ASCII chars like `menü` rendering as `menÃ¼` suggesting a Windows encoding mismatch)
+- Suggestions: Add `*.mp4`, `*.avif`, `*.webp` to `.gitignore`; use UTF-8 encoding consistently
+
+**Games (framework-based):**
+
+- Several canvas-based games using a P5/custom framework — these go beyond the expected curriculum and show initiative
+- However, the use of a game framework (`GameFramework.js`) means the core logic is abstracted away
+
+---
+
+### Task Fulfillment
+
+| Expected item | Status | Notes |
+|---------------|--------|-------|
+| HTML | ✅ Done | Multiple HTML files present |
+| CSS | ✅ Done | Position, flexbox, reset CSS all present |
+| Flexbox | ✅ Done | `display: flex` in Mercedes and calculator |
+| Media Query | ❌ Missing | No `@media` query found |
+| Grid | ❌ Missing | No CSS Grid found |
+| JS | ✅ Done | Calculator, games, basic exercises |
+| Loops | ✅ Done | Loop exercises present |
+| If Conditions | ✅ Done | Logical operators and conditions present |
+| getElementById | ✅ Done | Extensively used in calculator (correctly) |
+
+---
+
+### Grade
+
+| Criterion | Score |
+|-----------|-------|
+| Code Quality (40%) | 62 |
+| Task Fulfillment (30%) | 68 |
+| Git Discipline (20%) | 45 |
+| Effort (10%) | 72 |
+
+**Weighted Score: 62**
+
+**Grade: 3** — Leander shows good initiative with game projects beyond the curriculum. The calculator implementation is functional and uses `getElementById` correctly. However, committing large binary files (35MB MP4) is a serious git hygiene issue, media queries and CSS grid are missing, and many commit messages are too vague.
+
+---
+
+*Report generated by GitHub Copilot on 2026-06-22*

@@ -1,0 +1,109 @@
+# Commit Review — 2026-06-22
+
+**Commits reviewed:** all (46)
+**Expected tasks:** html css flexbox media query grid js loops if conditions getelementbyid
+**Grade scale:** AT-1-5
+
+---
+
+## Azeez
+
+**Pull result:** updated (04_JS-HTML: 2 files, 17 lines changed)
+**Branch:** main
+**Commits reviewed:** 46 (oldest → newest)
+
+### Commit Timeline
+
+| # | Hash | Message | Date | Files changed |
+|---|------|---------|------|---------------|
+| 1 | `38ffe3e` | test | — | — |
+| 2 | `812742e` | reorg | — | — |
+| 3 | `a994d50` | 40 Aufgabe 1+2+41 | — | — |
+| 4 | `31d1020` | aufgabe 41 done | — | — |
+| 5 | `5128b4b` | Aufgabe 42 done easy | — | — |
+| 6 | `6549072` | 43 done | — | — |
+| 7–12 | `838c8ea`–`2682f82` | 45 task 1–6 done | — | — |
+| 13 | `3dd4c6a` | 50 task 1 done | — | — |
+| 14–18 | `062f20a`–`8fc2163` | 52 task 1–5 done | — | — |
+| 19–26 | `c9f4bfc`–`3088582` | 60 task 1–8 + Arrays 1–2 | — | — |
+| 27 | `d49c404` | REORG | — | — |
+| 28—30 | `820402f`–`7d9ccf2` | Website html practice, html WEB, editorTricks | — | — |
+| 31 | `722129b` | selectors done | — | — |
+| 32 | `144495b` | Aufgaben | — | — |
+| 33 | `3d173e4` | positions | — | — |
+| 34 | `57f6f68` | css Reset | — | — |
+| 35 | `2156e02` | boxsizing.html | — | — |
+| 36 | `3822ec3` | flexbox | — | — |
+| 37 | `cba4aeb` | flexgrid | — | — |
+| 38 | `20a7c52` | mercedes projekt | — | — |
+| 39 | `d321965` | bitte nur mercedes html 2 anschauen | — | — |
+| 40 | `85ac5b0` | Rechner dritte Video | — | — |
+| 41 | `1f8ce8d` | Number Generator viertes Viedeo | — | — |
+| 42 | `3cba081` | Number Generator (experimentiert) | 2026-05-28 | 2 |
+| 43—44 | `a9406de`–`6209f74` | second video done (×2) | — | — |
+| 45 | `e5f389a` | fünftes Viedeo noch nicht fertig!! | 2026-05-28 | 3 |
+| 46 | `06fee8d` | fünftes Viedeo fertig | 2026-06-18 | 2 |
+
+### Git Review
+
+| Commit | Message quality | Scope | Hygiene | Notes |
+|--------|----------------|-------|---------|-------|
+| `38ffe3e` | ⚠️ "test" | ⚠️ Unknown | ✅ | Too vague |
+| `a9406de`+`6209f74` | ❌ Duplicate | ❌ Same content | ✅ | "second video done" twice |
+| `e5f389a` | ⚠️ "noch nicht fertig!!" | ❌ Incomplete | ✅ | Committed unfinished work explicitly |
+| `1f8ce8d`+`3cba081` | ⚠️ Typo "Viedeo" in messages | ⚠️ | ✅ | |
+| CSS task commits | ✅ Good | ✅ Atomic | ✅ Clean | |
+| JS task commits | ✅ Good | ✅ Atomic | ✅ Clean | Consistent "task N done" |
+
+**Summary:** 46 commits is excellent. Clear task-by-task commit pattern. Minor issues: duplicate "second video", an explicit "not finished" commit, and "Viedeo" typo in 3 messages. Overall discipline is strong.
+
+### Code Review
+
+**Commit `06fee8d` — fünftes Viedeo fertig (`04_JS-HTML/index5.js`)**
+
+- **What was done:** Extended `loadPeople()` to iterate a JSON array with `forEach` and render `<div>` elements via `getElementById("content").innerHTML`.
+- **Bug — Comma operator:** `(data.forEach((element) => { html += ... }), (document.getElementById("content").innerHTML = html))` — wrapping `forEach` + DOM assignment in a grouped comma expression `(expr1, expr2)` is non-standard and confusing. Should be two plain statements:
+  ```js
+  data.forEach((element) => { html += ...; });
+  document.getElementById("content").innerHTML = html;
+  ```
+- The loop to `console.log` first names (`for (let index = 0; ...)`) is left from an earlier step but never removed — dead code.
+- `loadPeople()` is called at the bottom which is correct.
+
+**CSS Grid (`02_HTML2.05/flexgrid.html` + `style.css`)**
+
+- `display: grid; grid-template-columns: 33% 33% 33%; grid-auto-rows: minmax(100px, auto);` ✅
+- `grid-column-start: span 2` on item1 ✅
+- Clean, functional grid implementation.
+
+**Mercedes (`03_HTML-Mercedes/mercedes.html`)**
+
+- Flexbox-based header ✅; `<meta viewport>` ✅
+- External SVG icons via CDN ✅
+- `src="assets\logo-140years.webp"` uses Windows backslash — should be forward slash for web compatibility.
+
+### Task Fulfillment
+
+| Expected item | Status | Notes |
+|---------------|--------|-------|
+| HTML | ✅ Done | Multiple HTML files, Mercedes |
+| CSS | ✅ Done | Selectors, position, reset, box-sizing |
+| Flexbox | ✅ Done | Dedicated `flexbox` commit |
+| Media Query | ❌ Missing | No `@media` queries found |
+| Grid | ✅ Done | `flexgrid` commit — proper grid layout |
+| JS | ✅ Done | Variables, strings, if-conditions, loops, Deno |
+| Loops | ✅ Done | 60 tasks 1–8 all done |
+| If conditions | ✅ Done | 40/41/42/43 tasks |
+| getElementById | ✅ Done | `loadPeople()`, JS-HTML video series |
+
+### Grade
+
+**Code Quality:** 75 | **Task Fulfillment:** 82 | **Git Discipline:** 75 | **Effort:** 85
+
+**Weighted Score:** 75×0.4 + 82×0.3 + 75×0.2 + 85×0.1 = 30.0 + 24.6 + 15.0 + 8.5 = **78.1**
+
+**Grade: 2 (Gut)** — Azeez shows solid breadth with 46 well-organized commits covering most topics. The comma-operator bug in `loadPeople()` and missing media queries prevent a grade 1. Dead code cleanup and typo-free commit messages would lift this further.
+
+---
+
+*Report generated by GitHub Copilot on 2026-06-22*

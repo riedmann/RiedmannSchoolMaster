@@ -1,0 +1,94 @@
+# Commit Review Summary — 2026-06-22
+
+**Expected tasks:** html, css, flexbox, media query, grid, js, loops, if conditions, getElementById  
+**Grade scale:** AT-1-5  
+**Baran:** ⚠️ SKIPPED — cannot determine default branch (no remote configured)
+
+---
+
+## Grade Overview
+
+| Student | Code Quality (40%) | Task Fulfillment (30%) | Git Discipline (20%) | Effort (10%) | **Score** | **Grade (AT)** |
+|---------|-------------------|----------------------|---------------------|-------------|-----------|----------------|
+| Bruno | 72 | 85 | 68 | 80 | **77** | 2 |
+| Danilo | 68 | 78 | 75 | 78 | **73** | 2 |
+| Efe | 50 | 48 | 55 | 55 | **51** | 4 |
+| Ehab | 60 | 35 | 40 | 45 | **47** | 4 |
+| Jakob | 78 | 82 | 73 | 92 | **79** | 2 |
+| Kilian | 88 | 95 | 78 | 90 | **88** | 1 |
+| Leander | 62 | 68 | 45 | 72 | **62** | 3 |
+| Maru | 52 | 60 | 58 | 72 | **58** | 3 |
+| Nico | 68 | 72 | 68 | 70 | **69** | 3 |
+| Niklas | 72 | 78 | 72 | 72 | **74** | 2 |
+| Selim | 45 | 52 | 25 | 40 | **42** | 5 |
+| Tiago | 72 | 78 | 72 | 88 | **75** | 2 |
+| Tim | 68 | 72 | 75 | 90 | **73** | 2 |
+
+> Weighted score = Code Quality×0.4 + Task Fulfillment×0.3 + Git Discipline×0.2 + Effort×0.1  
+> AT grades: 1 (≥85), 2 (≥70), 3 (≥55), 4 (≥40), 5 (<40)
+
+---
+
+## Task Coverage Overview
+
+| Student | HTML | CSS | Flexbox | Media Query | Grid | JS | Loops | If/Else | getElementById | Commits | Last Active |
+|---------|------|-----|---------|-------------|------|----|-------|---------|----------------|---------|-------------|
+| Bruno | ✅ | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ | ⚠️ | 39 | 2026-06-10 |
+| Danilo | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | 42 | 2026-05-20 |
+| Efe | ⚠️ | ⚠️ | ⚠️ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | 30 | 2026-04-28 |
+| Ehab | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | 17 | 2026-01-21 |
+| Jakob | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ | ✅ | 53 | 2026-06-17 |
+| Kilian | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 51 | 2026-06-16 |
+| Leander | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | 47 | 2026-03-27 |
+| Maru | ✅ | ⚠️ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ⚠️ | 42 | 2026-06-17 |
+| Nico | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | 37 | 2026-04-30 |
+| Niklas | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 43 | 2026-04-30 |
+| Selim | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ✅ | ❌ | 14 | 2026-03-04 |
+| Tiago | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | 54 | 2026-06-10 |
+| Tim | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ✅ | ✅ | 56 | 2026-06-03 |
+
+> ✅ Done | ⚠️ Partial | ❌ Missing
+
+---
+
+## Key Findings
+
+### 🏆 Top Performance
+**Kilian** — Grade 1. Only student to cover all 9 expected topics. Advanced Todo list application with array methods (`find`, `findIndex`, `splice`, `forEach`) demonstrates clearly superior skills. Most correct random number generator implementation.
+
+### 📈 Strong Performers (Grade 2)
+- **Jakob** — Most commits (53), consistent work, good DOM usage. Missing grid/media query.
+- **Bruno** — All topics covered; bug in Zufallsgenerator (`ariaValueMin`).
+- **Niklas** — Good responsive web/grid; missing DOM exercises.
+- **Tiago** — Most commits (54), complete calculator; missing grid/media query.
+- **Tim** — Most commits (56), good CSS; missing grid/media query; Zufallsgenerator JS empty.
+
+### ⚠️ Needs Attention (Grade 3)
+- **Nico** — Missing media query and DOM exercises. Good fundamental code.
+- **Leander** — Binary files in git (35MB MP4). Missing grid/media query.
+- **Maru** — Random generator JS empty; calculator syntax error. Active but incomplete.
+
+### ❗ Significant Gaps (Grade 4)
+- **Efe** — No grid, no media query, no DOM. Activity stopped April 2026.
+- **Ehab** — No web work at all. Bulk commit of 24 files. Activity stopped January 2026.
+
+### 🚨 Action Required (Grade 5)
+- **Selim** — 7 of 14 commits are "commit"/"comit"/"uzu". Missing grid, media query, DOM. **Two advanced game files (Space Survival, Platformer) are likely not own work** — recommend in-person check.
+
+### ⚠️ Skipped
+- **Baran** — Repository has no remote branch configured. Cannot pull or review.
+
+---
+
+## Common Issues Across the Class
+
+1. **Missing topics:** Media query (9/13 students missing) and CSS Grid (7/13) are the most commonly skipped topics
+2. **Empty JS files:** Both Maru and Tim committed HTML/CSS for the random generator but left the JS file empty
+3. **`ariaValueMin` bug:** Bruno used `.ariaValueMin` instead of `.value` — a common mistake when following the wrong autocomplete suggestion
+4. **Debug code in commits:** Multiple students left `console.log()`, `alert("Test")` in submitted code
+5. **Bulk commits:** Ehab (24 files), Selim (9 files) committed too many files in single commits
+6. **Binary files in git:** Leander committed a 35MB MP4 video — significant repository bloat
+
+---
+
+*Report generated by GitHub Copilot on 2026-06-22*
