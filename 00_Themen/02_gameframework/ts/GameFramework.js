@@ -52,6 +52,12 @@ class GameFramework {
                 this.game.onMouseClick(x, y);
             }
         });
+        // Setup keyboard listener
+        window.addEventListener("keydown", (event) => {
+            if (this.game.onKeyDown) {
+                this.game.onKeyDown(event);
+            }
+        });
     }
     /**
      * Add a game object to the scene

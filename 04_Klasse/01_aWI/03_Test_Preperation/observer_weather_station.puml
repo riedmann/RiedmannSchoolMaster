@@ -1,0 +1,82 @@
+@startuml Observer Pattern - Weather Station
+
+interface Subject {
+    + registerObserver(observer: Observer): void
+    + removeObserver(observer: Observer): void
+    + notifyObservers(): void
+}
+
+interface Observer {
+    + update(temperature: number, humidity: number, pressure: number): void
+}
+
+interface DisplayElement {
+    + display(): void
+}
+
+class WeatherStation {
+    - observers: Observer[]
+    - temperature: number
+    - humidity: number
+    - pressure: number
+    + registerObserver(observer: Observer): void
+    + removeObserver(observer: Observer): void
+    + notifyObservers(): void
+    + measurementsChanged(): void
+    + setMeasurements(temp: number, humidity: number, pressure: number): void
+}
+
+class CurrentConditionsDisplay {
+    - temperature: number
+    - humidity: number
+    - weatherStation: Subject
+    + update(temperature: number, humidity: number, pressure: number): void
+    + display(): void
+}
+
+class ForecastDisplay {
+    - currentPressure: number
+    - lastPressure: number
+    - weatherStation: Subject
+    + update(temperature: number, humidity: number, pressure: number): void
+    + display(): void
+}
+
+class StatisticsDisplay {
+    - temperatures: number[]
+    - weatherStation: Subject
+    + update(temperature: number, humidity: number, pressure: number): void
+    + display(): void
+    - getAverage(): number
+    - getMin(): number
+    - getMax(): number
+}
+
+Subject <|.. WeatherStation
+Observer <|.. CurrentConditionsDisplay
+Observer <|.. ForecastDisplay
+Observer <|.. StatisticsDisplay
+DisplayElement <|.. CurrentConditionsDisplay
+DisplayElement <|.. ForecastDisplay
+DisplayElement <|.. StatisticsDisplay
+
+WeatherStation "1" o-- "0..*" Observer : notifies >
+
+CurrentConditionsDisplay --> Subject : observes
+ForecastDisplay --> Subject : observes
+StatisticsDisplay --> Subject : observes
+
+note right of WeatherStation
+    When measurements change:
+    1. setMeasurements() is called
+    2. measurementsChanged() triggers
+    3. notifyObservers() updates all observers
+end note
+
+note left of Observer
+    All display classes implement
+    this interface to receive
+    weather updates
+end note
+
+@enduml

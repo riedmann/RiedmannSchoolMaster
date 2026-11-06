@@ -20,7 +20,13 @@ class MyGame extends Game {
     ctx.fillRect(this.x, this.y, 50, 50); // Draw a blue square
   }
 
-  onMouseClick(x: number, y: number): void {}
+  onMouseClick(x: number, y: number): void {
+    alert("click");
+  }
+
+  onKeyDown(event: KeyboardEvent): void {
+    alert(`Key pressed: ${event.key}`);
+  }
 }
 
 const game = new MyGame();

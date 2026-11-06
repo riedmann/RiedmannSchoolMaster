@@ -46,6 +46,12 @@ abstract class Game {
    * @param {number} y - Mouse Y coordinate
    */
   onMouseClick?(x: number, y: number): void;
+
+  /**
+   * Handle keyboard keydown events
+   * @param {KeyboardEvent} event - The keyboard event
+   */
+  onKeyDown?(event: KeyboardEvent): void;
 }
 
 class GameFramework {
@@ -107,6 +113,13 @@ class GameFramework {
 
       if (this.game.onMouseClick) {
         this.game.onMouseClick(x, y);
+      }
+    });
+
+    // Setup keyboard listener
+    window.addEventListener("keydown", (event) => {
+      if (this.game.onKeyDown) {
+        this.game.onKeyDown(event);
       }
     });
   }

@@ -18,7 +18,12 @@ class MyGame extends Game {
         ctx.fillStyle = "blue";
         ctx.fillRect(this.x, this.y, 50, 50); // Draw a blue square
     }
-    onMouseClick(x, y) { }
+    onMouseClick(x, y) {
+        alert("click");
+    }
+    onKeyDown(event) {
+        alert(`Key pressed: ${event.key}`);
+    }
 }
 const game = new MyGame();
 const framework = new GameFramework(game, 800, 600);
