@@ -3,6 +3,7 @@ import { Game, GameFramework } from "./index.js";
 import { Rectangle } from "./actors/Rectangle.js";
 import { Circle } from "./actors/Circle.js";
 import { Tree } from "./actors/Tree.js";
+import { LeftCircle } from "./actors/LeftCircle.js";
 // start using objects
 class MyGame extends Game {
     constructor() {
@@ -11,15 +12,9 @@ class MyGame extends Game {
     }
     init() {
         this.actors.push(new Rectangle(100, 100, 50, 50));
-        this.actors.push(new Rectangle(200, 200, 50, 50));
-        this.actors.push(new Rectangle(300, 300, 50, 50));
         this.actors.push(new Circle(140, 100, 25));
-        this.actors.push(new Circle(200, 200, 25));
-        this.actors.push(new Circle(300, 300, 25));
-        this.actors.push(new Circle(400, 400, 25));
-        this.actors.push(new Circle(500, 500, 25));
-        this.actors.push(new Circle(600, 600, 25));
         this.actors.push(new Tree(700, 100));
+        this.actors.push(new LeftCircle(600, 100, 25));
     }
     update(deltaTime) {
         console.log("Delta Time" + deltaTime);
