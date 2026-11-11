@@ -1,16 +1,17 @@
 // MyGame - Example implementation of Game interface
 
-import { Game, GameFramework } from "./index.js";
-import { Rectangle } from "./actors/Rectangle.ts";
-import { Circle } from "./actors/Circle.ts";
 import { Actor } from "./actors/Actor.ts";
+import { Circle } from "./actors/Circle.ts";
+import { Rectangle } from "./actors/Rectangle.ts";
 import { Tree } from "./actors/Tree.ts";
+import { Game, GameFramework } from "./index.js";
 import { LeftCircle } from "./actors/LeftCircle.ts";
 
 
 // start using objects
 class MyGame extends Game {
     private actors: Actor[] = [];
+
 
     init(): void {
         this.actors.push(new Rectangle(100, 100, 50, 50));

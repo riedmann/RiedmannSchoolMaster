@@ -1,8 +1,8 @@
 // MyGame - Example implementation of Game interface
-import { Game, GameFramework } from "./index.js";
-import { Rectangle } from "./actors/Rectangle.js";
 import { Circle } from "./actors/Circle.js";
+import { Rectangle } from "./actors/Rectangle.js";
 import { Tree } from "./actors/Tree.js";
+import { Game, GameFramework } from "./index.js";
 import { LeftCircle } from "./actors/LeftCircle.js";
 // start using objects
 class MyGame extends Game {
