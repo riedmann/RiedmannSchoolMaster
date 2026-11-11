@@ -4,7 +4,7 @@ import { Actor } from "./actors/Actor.ts";
 import { Circle } from "./actors/Circle.ts";
 import { Rectangle } from "./actors/Rectangle.ts";
 import { Tree } from "./actors/Tree.ts";
-import { Game, GameFramework } from "./index.js";
+import { Game, GameFramework } from "./index.ts";
 import { LeftCircle } from "./actors/LeftCircle.ts";
 
 

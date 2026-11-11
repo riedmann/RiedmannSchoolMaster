@@ -1,4 +1,4 @@
-import { Actor } from "./Actor";
+import { Actor } from "./Actor.ts";
 
 export class Rectangle implements Actor {
     private x: number;

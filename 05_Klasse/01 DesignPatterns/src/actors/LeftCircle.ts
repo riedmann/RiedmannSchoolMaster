@@ -1,4 +1,4 @@
-import { Circle } from "./Circle.js";
+import { Circle } from "./Circle.ts";
 
 export class LeftCircle extends Circle {
     constructor(x: number, y: number, radius: number) {
