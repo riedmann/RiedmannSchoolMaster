@@ -1,0 +1,20 @@
+{
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "dev": "tsc --watch",
+        "format": "prettier --write ."
+    },
+    "devDependencies": {
+        "prettier": "^3.8.3"
+    },
+    "prettier": {
+        "semi": true,
+        "singleQuote": false,
+        "tabWidth": 4,
+        "trailingComma": "all",
+        "printWidth": 100
+    },
+    "dependencies": {
+        "typescript": "^7.0.2"
+    }
+}

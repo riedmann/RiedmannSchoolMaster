@@ -4,19 +4,19 @@ import { Game, GameFramework } from "./index.js";
 class MyGame extends Game {
     constructor() {
         super(...arguments);
-        this.x = 100;
-        this.y = 100;
+        this.x = 0;
+        this.y = 0;
     }
-    init() { }
+    init() {
+    }
     update(deltaTime) {
-        this.x += 50 * deltaTime; // Move right at 50 pixels per second
-        if (this.x > 800)
-            this.x = 0; // Wrap around the screen
+        console.log("Delta Time" + deltaTime);
+        this.x += deltaTime * 100;
     }
     render(ctx) {
         ctx.clearRect(0, 0, 800, 600); // Clear the canvas
-        ctx.fillStyle = "orange";
-        ctx.fillRect(this.x, this.y, 50, 50); // Draw a blue square
+        ctx.fillStyle = "red";
+        ctx.fillRect(this.x, this.y, 50, 50); // Draw a rectangle at the current position
     }
     onMouseClick(x, y) {
         console.log(`Mouse clicked at: (${x}, ${y})`);
@@ -26,6 +26,6 @@ class MyGame extends Game {
     }
 }
 const game = new MyGame();
-const framework = new GameFramework(game, 1200, 600, "canvas");
+const framework = new GameFramework(game, 800, 600, "canvas");
 framework.start();
 console.log("test");
