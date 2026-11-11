@@ -9,7 +9,7 @@
         "strict": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "noEmitOnError": false,
+        "noEmitOnError": true,
         "rewriteRelativeImportExtensions": true
     },
     "include": ["src/**/*.ts"],
