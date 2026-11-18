@@ -14,6 +14,14 @@
       "runtimeExecutable": "/usr/local/bin/deno",
       "runtimeArgs": ["run", "--unstable", "--inspect-wait", "--allow-all"],
       "attachSimplePort": 9229
+    },
+    {
+      "request": "launch",
+      "name": "Launch TypeScript with Node",
+      "type": "node",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": ["--experimental-transform-types"]
     }
   ]
 }
