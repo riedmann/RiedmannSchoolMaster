@@ -5,6 +5,20 @@ export class Circle extends BaseActor {
         this.x = x;
         this.y = y;
         this.radius = radius;
+        this.observers = [];
+        this.sentMessage = false;
+    }
+    update(delta) {
+        this.movement.update(delta);
+        if (!this.sentMessage && this.movement.getX() < 50) {
+            for (let observer of this.observers) {
+                observer.inform();
+            }
+            this.sentMessage = true;
+        }
+    }
+    addObserver(observer) {
+        this.observers.push(observer);
     }
     render(ctx) {
         ctx.fillStyle = "black"; // Set the fill color

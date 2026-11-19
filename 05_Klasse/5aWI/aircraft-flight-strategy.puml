@@ -1,0 +1,72 @@
+@startuml
+title Aircraft Flight Strategy System
+
+class Aircraft <<Context>> {
+  - currentAltitude: double
+  - currentFuelLevel: double
+  - strategy: FlightStrategy
+  + setStrategy(strategy: FlightStrategy): void
+  + performFlight(): void
+  + getCurrentSpeed(): double
+}
+
+interface FlightStrategy <<Strategy>> {
+  + calculateSpeed(): double
+  + calculateFuelConsumption(): double
+  + calculateEnginePower(): double
+}
+
+class NormalFlight <<ConcreteStrategy>> {
+  + calculateSpeed(): double
+  + calculateFuelConsumption(): double
+  + calculateEnginePower(): double
+}
+
+class EcoFlight <<ConcreteStrategy>> {
+  + calculateSpeed(): double
+  + calculateFuelConsumption(): double
+  + calculateEnginePower(): double
+}
+
+class SportFlight <<ConcreteStrategy>> {
+  + calculateSpeed(): double
+  + calculateFuelConsumption(): double
+  + calculateEnginePower(): double
+}
+
+class EmergencyFlight <<ConcreteStrategy>> {
+  + calculateSpeed(): double
+  + calculateFuelConsumption(): double
+  + calculateEnginePower(): double
+}
+
+Aircraft o-- "1" FlightStrategy : current strategy
+FlightStrategy <|.. NormalFlight
+FlightStrategy <|.. EcoFlight
+FlightStrategy <|.. SportFlight
+FlightStrategy <|.. EmergencyFlight
+
+note right of Aircraft
+  setStrategy replaces the current strategy at runtime.
+  performFlight delegates calculations to the strategy.
+  getCurrentSpeed delegates to calculateSpeed.
+end note
+
+note bottom of EcoFlight
+  Lower speed and minimal fuel consumption
+end note
+
+note bottom of SportFlight
+  High speed and high fuel consumption
+end note
+
+note bottom of EmergencyFlight
+  Maximum engine power
+end note
+
+' Aircraft is the context and holds a reference to the FlightStrategy interface.
+' Each concrete strategy implements its own flight calculations.
+' Aircraft delegates flight calculations to its current strategy instead of selecting a mode itself.
+' setStrategy replaces that strategy at runtime without changing the Aircraft class.
+' New flight modes can be added by implementing FlightStrategy without modifying Aircraft.
+@enduml

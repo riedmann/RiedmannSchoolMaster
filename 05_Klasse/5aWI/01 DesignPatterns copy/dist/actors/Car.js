@@ -1,12 +1,13 @@
 import { BaseActor } from "./BaseActor.js";
 export class Car extends BaseActor {
-    constructor(x, y, movement) {
+    constructor(movement) {
         super(movement);
-        this.x = x;
-        this.y = y;
+    }
+    inform() {
+        console.log("Circle is left");
     }
     render(ctx) {
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = "orange";
         ctx.fillRect(this.movement.getX(), this.movement.getY(), 100, 50);
     }
 }

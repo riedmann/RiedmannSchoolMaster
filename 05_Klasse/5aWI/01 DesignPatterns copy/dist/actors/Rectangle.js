@@ -1,5 +1,8 @@
 import { BaseActor } from "./BaseActor.js";
 export class Rectangle extends BaseActor {
+    inform() {
+        console.log("Rectangle is informed");
+    }
     constructor(x, y, movement) {
         super(movement);
         this.x = x;

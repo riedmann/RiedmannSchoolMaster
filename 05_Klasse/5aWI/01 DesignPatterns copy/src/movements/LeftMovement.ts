@@ -1,7 +1,10 @@
 export class LeftMovement {
-    constructor(private x: number, private y: number) { }
+    private speed: number = Math.random() * 200 + 20;
+    constructor(private x: number, private y: number) {
+
+    }
     public update(delta: number): void {
-        this.x -= delta * 400;
+        this.x -= delta * this.speed;
         if (this.x < 0) {
             this.x = 800;
         }

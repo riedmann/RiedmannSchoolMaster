@@ -1,8 +1,13 @@
 import { Actor } from "./Actor";
 import { Movement } from "../movements/Movement.ts";
 import { BaseActor } from "./BaseActor.ts";
+import { Observer } from "../observer/Observer.tsx";
 
-export class Rectangle extends BaseActor {
+export class Rectangle extends BaseActor implements Observer {
+
+    public inform() {
+        console.log("Rectangle is informed");
+    }
 
     constructor(private x: number, private y: number, movement: Movement) {
         super(movement);

@@ -2,6 +2,7 @@
 
 import { Actor } from "./actors/Actor.ts";
 import { Car } from "./actors/Car.ts";
+import { Circle } from "./actors/Circle.ts";
 import { Rectangle } from "./actors/Rectangle.ts";
 import { Tree } from "./actors/Tree.ts";
 import { Game, GameFramework } from "./index.ts";
@@ -16,9 +17,21 @@ class MyGame extends Game {
 
 
     init(): void {
-        this.actors.push(new Rectangle(10, 100, new LeftMovement(10, 100)));
-        this.actors.push(new Tree(400, 300, new SinusMovement(400, 300)));
-        this.actors.push(new Car(200, 200, new RightMovement(200, 200)));
+        let circle: Circle = new Circle(10, 100, 10, new LeftMovement(10, 100));
+        this.actors.push(circle);
+
+        let c1: Car = new Car(new RightMovement(100, 200));
+        let c2: Car = new Car(new LeftMovement(300, 300));
+        let rect: Rectangle = new Rectangle(200, 200, new RightMovement(200, 200));
+        this.actors.push(rect);
+
+        this.actors.push(c2);
+        this.actors.push(c1);
+
+
+        circle.addObserver(c1);
+        circle.addObserver(c2);
+        circle.addObserver(rect);
 
 
     }

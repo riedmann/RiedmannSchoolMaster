@@ -1,11 +1,10 @@
 // MyGame - Example implementation of Game interface
 import { Car } from "./actors/Car.js";
+import { Circle } from "./actors/Circle.js";
 import { Rectangle } from "./actors/Rectangle.js";
-import { Tree } from "./actors/Tree.js";
 import { Game, GameFramework } from "./index.js";
 import { LeftMovement } from "./movements/LeftMovement.js";
 import { RightMovement } from "./movements/RightMovement.js";
-import { SinusMovement } from "./movements/SinusMovement.js";
 // start using objects
 class MyGame extends Game {
     constructor() {
@@ -13,9 +12,17 @@ class MyGame extends Game {
         this.actors = [];
     }
     init() {
-        this.actors.push(new Rectangle(10, 100, new LeftMovement(10, 100)));
-        this.actors.push(new Tree(400, 300, new SinusMovement(400, 300)));
-        this.actors.push(new Car(200, 200, new RightMovement(200, 200)));
+        let circle = new Circle(10, 100, 10, new LeftMovement(10, 100));
+        this.actors.push(circle);
+        let c1 = new Car(new RightMovement(100, 200));
+        let c2 = new Car(new LeftMovement(300, 300));
+        let rect = new Rectangle(200, 200, new RightMovement(200, 200));
+        this.actors.push(rect);
+        this.actors.push(c2);
+        this.actors.push(c1);
+        circle.addObserver(c1);
+        circle.addObserver(c2);
+        circle.addObserver(rect);
     }
     update(deltaTime) {
         this.actors.forEach(actor => actor.update(deltaTime));
