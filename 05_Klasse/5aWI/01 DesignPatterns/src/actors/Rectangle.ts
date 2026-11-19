@@ -1,10 +1,13 @@
-import { Actor } from "./Actor";
+import { Actor } from "./Actor.ts";
 import { Movement } from "../movements/Movement.ts";
 import { BaseActor } from "./BaseActor.ts";
 
 export class Rectangle extends BaseActor {
-
-    constructor(private x: number, private y: number, movement: Movement) {
+    constructor(
+        private x: number,
+        private y: number,
+        movement: Movement,
+    ) {
         super(movement);
     }
 
@@ -15,6 +18,5 @@ export class Rectangle extends BaseActor {
 
         ctx.fillStyle = "black"; // Set the fill color
         ctx.fillRect(this.movement.getX(), this.movement.getY(), 50, 50); // Fill the canvas with the color
-
     }
 }
