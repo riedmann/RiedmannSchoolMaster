@@ -1,4 +1,4 @@
-import { Actor } from "./Actor";
+import { Actor } from "./Actor.ts";
 import { Movement } from "../movements/Movement.ts";
 import { BaseActor } from "./BaseActor.ts";
 import { Observer } from "../observer/Observer.tsx";
@@ -20,6 +20,5 @@ export class Rectangle extends BaseActor implements Observer {
 
         ctx.fillStyle = "black"; // Set the fill color
         ctx.fillRect(this.movement.getX(), this.movement.getY(), 50, 50); // Fill the canvas with the color
-
     }
 }
